@@ -1,11 +1,18 @@
-pub fn is_leap_year(x:i32)->bool
+pub fn is_leap_year(x:i16)->bool
 {
-  match x{
-    1996 => true,
-    1997 => false,
-    1900 => false,
-    2000 => true,
-    2400 => true,
-    _ => true,
+    if get_remainder(x) == 0{
+      return true;
+    } else {
+      return false;
+    }
+}
+
+fn get_remainder(x:i16)->i16
+{
+  if x%100 == 0{
+    (x/100)%4
+  }
+  else{
+    x%4
   }
 }
